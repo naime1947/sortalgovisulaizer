@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "3947d25b-eed8-49d5-a13e-9c8ae0736a1f"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -31,6 +34,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/milligram/dist/miligram.min.css",
               "src/styles.scss"
             ],
             "scripts": []

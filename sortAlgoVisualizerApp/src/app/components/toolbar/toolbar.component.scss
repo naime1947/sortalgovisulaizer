@@ -1,0 +1,79 @@
+#toolbar {
+  width: 100%;
+  height: 100px;
+  background-color: #2d4257;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+#btnNewArray {
+  font-size: 16px;
+  display: inline-block;
+  margin-left: 15px;
+  border: none;
+  padding: 10px 15px;
+  height: auto;
+}
+
+#arraySize {
+  font-size: 16px;
+  display: inline-block;
+  width: 25%;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+#changeSize {
+  outline: none;
+  margin-right: 15px;
+  width: 100%;
+}
+
+.separator {
+  width: 1px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-left: 15px;
+  margin-right: 15px;
+  display: inline-block;
+}
+
+.algorithmButton {
+  color: white;
+  font-size: 16px;
+  display: inline-block;
+  margin-left: 15px;
+  margin-right: 15px;
+  cursor: pointer;
+  border: 1px solid;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.algorithmButton:hover {
+  color: rgb(212, 212, 212);
+}
+
+.currentAlgorithmButton {
+  color: rgb(241, 94, 255);
+  font-size: 16px;
+  display: inline-block;
+  margin-left: 15px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+#sort {
+  font-size: 16px;
+  display: inline-block;
+  margin-left: 15px;
+  background-color: darkcyan;
+  border: none;
+  padding: 10px 15px;
+  height: auto;
+}
+
+#sort:hover {
+  color: rgb(212, 212, 212);
+}
