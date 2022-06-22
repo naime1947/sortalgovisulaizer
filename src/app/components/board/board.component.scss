@@ -1,0 +1,17 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .array-list {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.each-item {
+  margin: 0 1px;
+  background-color: dodgerblue;
+  flex: 1;
+}
