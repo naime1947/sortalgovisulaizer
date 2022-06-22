@@ -1,1 +1,9 @@
-<p>board works!</p>
+<div class="container">
+  <div class="array-list">
+    <div
+      class="each-item"
+      *ngFor="let item of arrService.arr$ | async"
+      [style.height]="item + 'vh'"
+    ></div>
+  </div>
+</div>

@@ -1,12 +1,14 @@
 <div id="toolbar">
-  <button id="btnNewArray">New Array</button>
+  <button id="btnNewArray" (click)="generateNewArr()">New Array</button>
   <div class="separator"></div>
   <div id="arraySize">
     <label for="changeSize"> Change Array Size &amp; Sorting Speed </label
     ><input
       type="range"
-      min="0"
+      (input)="onRangeChange($event)"
+      min="7"
       max="100"
+      value="80"
       id="changeSize"
       style="background: white; cursor: pointer"
     />
