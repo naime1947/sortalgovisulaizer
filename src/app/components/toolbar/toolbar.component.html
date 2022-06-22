@@ -4,11 +4,12 @@
   <div id="arraySize">
     <label for="changeSize"> Change Array Size &amp; Sorting Speed </label
     ><input
+      #range
       type="range"
       (input)="onRangeChange($event)"
       min="7"
       max="100"
-      value="80"
+      [value]="arrService.defaultArrLength"
       id="changeSize"
       style="background: white; cursor: pointer"
     />

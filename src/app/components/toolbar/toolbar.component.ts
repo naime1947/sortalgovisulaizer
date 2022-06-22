@@ -1,5 +1,5 @@
 import { ArraySortService } from './../../services/arr-sort.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-toolbar',
@@ -7,12 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./toolbar.component.scss'],
 })
 export class ToolbarComponent implements OnInit {
-  constructor(private arrService: ArraySortService) {}
+  @ViewChild('range') range!: ElementRef;
+
+  constructor(public arrService: ArraySortService) {}
 
   ngOnInit(): void {}
 
   generateNewArr() {
-    this.arrService.generateNewArr();
+    const value = this.range.nativeElement.value;
+    this.arrService.generateNewArr(value);
   }
 
   onRangeChange(e: any) {

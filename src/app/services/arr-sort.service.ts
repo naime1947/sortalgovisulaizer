@@ -15,7 +15,7 @@ export class ArraySortService {
 
   generateNewArr(length: number = this.defaultArrLength) {
     const newArr = Array.from({ length: length }, () =>
-      Math.floor(Math.random() * 60)
+      Math.floor((Math.random() + 0.01) * 60)
     );
     this.arrSub.next(newArr);
   }
