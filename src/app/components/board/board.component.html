@@ -4,6 +4,8 @@
       class="each-item"
       *ngFor="let item of arrService.arr$ | async"
       [style.height]="item + 'vh'"
-    ></div>
+    >
+      <span *ngIf="(arrService.arr$ | async)!.length <= 60"> {{ item }} </span>
+    </div>
   </div>
 </div>
