@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./board.component.scss'],
 })
 export class BoardComponent implements OnInit {
+  isSorted = false;
   constructor(public arrService: ArraySortService) {}
 
   ngOnInit(): void {}

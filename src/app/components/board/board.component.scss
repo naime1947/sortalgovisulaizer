@@ -17,4 +17,7 @@
   text-align: center;
   font-size: x-small;
   color: white;
+  &.sorted {
+    background-color: hotpink;
+  }
 }
