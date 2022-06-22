@@ -8,6 +8,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
   @ViewChild('range') range!: ElementRef;
+  @ViewChild('speed') speed!: ElementRef;
 
   constructor(public arrService: ArraySortService) {}
 
@@ -21,5 +22,9 @@ export class ToolbarComponent implements OnInit {
   onRangeChange(e: any) {
     const value = e.target.value;
     this.arrService.generateNewArr(value);
+  }
+
+  onSpeedChange(e: any){
+    const value = e.target.value;
   }
 }
