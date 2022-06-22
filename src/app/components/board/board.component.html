@@ -4,6 +4,7 @@
       class="each-item"
       *ngFor="let item of arrService.arr$ | async"
       [style.height]="item + 'vh'"
+      [ngClass]="{'sorted': isSorted}"
     >
       <span *ngIf="(arrService.arr$ | async)!.length <= 60"> {{ item }} </span>
     </div>
