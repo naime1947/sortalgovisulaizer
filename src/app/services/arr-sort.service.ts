@@ -6,10 +6,12 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 })
 export class ArraySortService {
   defaultArrLength = 60;
-
-  private arrSub = new Subject<number[]>();
-
+  private arrSub = new BehaviorSubject<number[]>([]);
   public arr$: Observable<number[]> = this.arrSub.asObservable();
+
+  constructor() {
+    this.generateNewArr();
+  }
 
   generateNewArr(length: number = this.defaultArrLength) {
     const newArr = Array.from({ length: length }, () =>
