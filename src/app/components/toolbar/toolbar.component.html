@@ -1,13 +1,20 @@
 <div id="toolbar">
-  <button id="btnNewArray" (click)="generateNewArr()">New Array</button>
+  <button
+    id="btnNewArray"
+    [disabled]="isSortingStarted"
+    (click)="generateNewArr()"
+  >
+    New Array
+  </button>
   <div class="separator"></div>
   <div class="ranges">
     <div class="each-range">
       <label for="changeSizeRange"> Change Array Size </label
       ><input
         #range
+        [disabled]="isSortingStarted"
         type="range"
-        (input)="onRangeChange($event)"
+        (input)="onArrySizeChange($event)"
         min="3"
         max="100"
         [value]="arrService.defaultArrLength"
@@ -20,8 +27,8 @@
         #speed
         type="range"
         (input)="onSpeedChange($event)"
-        min="3"
-        max="100"
+        min="0"
+        max="300"
         [value]="50"
         id="speedSizeRange"
       />
@@ -29,10 +36,40 @@
   </div>
 
   <div class="separator"></div>
-  <div class="algorithmButton currentAlgorithmButton">Merge Sort</div>
-  <div class="algorithmButton">Quick Sort</div>
-  <div class="algorithmButton">Heap Sort</div>
-  <div class="algorithmButton">Bubble Sort</div>
+  <button
+    class="button button-outline algorithmButton"
+    [ngClass]="{ currentAlgorithmButton: isMergeSortSelected }"
+    (click)="makeAllBtnFalse(); isMergeSortSelected = true"
+    [disabled]="isSortingStarted"
+  >
+    Merge Sort
+  </button>
+  <button
+    class="button button-outline algorithmButton"
+    [ngClass]="{ currentAlgorithmButton: isQuickSortSelected }"
+    (click)="makeAllBtnFalse(); isQuickSortSelected = true"
+    [disabled]="isSortingStarted"
+  >
+    Quick Sort
+  </button>
+  <button
+    class="button button-outline algorithmButton"
+    [ngClass]="{ currentAlgorithmButton: isHeapSortSelected }"
+    (click)="makeAllBtnFalse(); isHeapSortSelected = true"
+    [disabled]="isSortingStarted"
+  >
+    Heap Sort
+  </button>
+  <button
+    class="button button-outline algorithmButton"
+    [ngClass]="{ currentAlgorithmButton: isBubbleSortSelected }"
+    (click)="makeAllBtnFalse(); isBubbleSortSelected = true"
+    [disabled]="isSortingStarted"
+  >
+    Bubble Sort
+  </button>
   <div class="separator"></div>
-  <button id="sort">Start Sorting!</button>
+  <button id="sort" (click)="onStartSorting()" [disabled]="isSortingStarted">
+    Start Sorting!
+  </button>
 </div>

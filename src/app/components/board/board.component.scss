@@ -20,4 +20,10 @@
   &.sorted {
     background-color: hotpink;
   }
+  &.selected {
+    background-color: lawngreen;
+  }
+  &.done {
+    background-color: darkcyan;
+  }
 }

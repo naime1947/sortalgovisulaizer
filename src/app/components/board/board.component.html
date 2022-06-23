@@ -3,10 +3,12 @@
     <div
       class="each-item"
       *ngFor="let item of arrService.arr$ | async"
-      [style.height]="item + 'vh'"
-      [ngClass]="{'sorted': isSorted}"
+      [style.height]="item.value + 'vh'"
+      [ngClass]="{ sorted: item.isSorted, selected: item.isSelected, done: item.isDone }"
     >
-      <span *ngIf="(arrService.arr$ | async)!.length <= 60"> {{ item }} </span>
+      <span *ngIf="(arrService.arr$ | async)!.length <= 60">
+        {{ item.value }}
+      </span>
     </div>
   </div>
 </div>
