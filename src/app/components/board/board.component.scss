@@ -1,5 +1,6 @@
-.container {
+.wrapper {
   width: 100%;
+  padding: 0 40rem;
   display: flex;
   justify-content: center;
 
@@ -25,5 +26,11 @@
   }
   &.done {
     background-color: darkcyan;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .wrapper {
+    padding: 0 1rem;
   }
 }

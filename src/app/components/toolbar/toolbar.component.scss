@@ -80,3 +80,40 @@
 #sort:hover {
   color: rgb(212, 212, 212);
 }
+
+@media only screen and (max-width: 1024px) {
+  #toolbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 2rem;
+    height: 100%;
+    width: 100%;
+  }
+  .separator {
+    width: 80px;
+    height: 1px;
+    display: none;
+  }
+
+  #sort {
+    order: -1;
+  }
+
+  button {
+    display: block;
+    width: 100%;
+    margin: 1rem 0 !important;
+  }
+  .ranges {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  input {
+    width: 100%;
+  }
+
+  #btnNewArray {
+    order: 1;
+  }
+}

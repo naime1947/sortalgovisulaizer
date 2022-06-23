@@ -1,0 +1,12 @@
+@media only screen and (max-width: 1024px) {
+  .wrapper {
+    display: flex;
+    height: 100vh;
+    .toolbar-wrapper {
+      width: 30vw;
+    }
+    .board-wrapper {
+      width: 70vw;
+    }
+  }
+}
