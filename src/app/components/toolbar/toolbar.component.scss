@@ -101,8 +101,9 @@
   }
 
   button {
-    display: block;
+    display: block !important;
     width: 100%;
+    font-size: small !important;
     margin: 1rem 0 !important;
   }
   .ranges {
