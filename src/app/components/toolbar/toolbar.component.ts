@@ -59,7 +59,6 @@ export class ToolbarComponent implements OnInit, OnDestroy {
 
   onStartSorting() {
     const speed = this.speed.nativeElement.value;
-    this.isSortingStarted = true;
 
     if (this.isMergeSortSelected) {
       console.log('start merge sorting');
@@ -68,7 +67,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
     } else if (this.isHeapSortSelected) {
       console.log('start heap sorting');
     } else if (this.isBubbleSortSelected) {
-      console.log('start bubble sorting');
+      this.isSortingStarted = true;
       this.arrService.startBubbleSort().then((isCompleted) => {
         this.isSortingStarted = false;
         this.isSortingDone = isCompleted;
