@@ -59,15 +59,18 @@ export class ToolbarComponent implements OnInit, OnDestroy {
 
   onStartSorting() {
     const speed = this.speed.nativeElement.value;
+    this.isSortingStarted = true;
 
     if (this.isMergeSortSelected) {
-      console.log('start merge sorting');
+      this.arrService.startMergeSort().then((isCompleted) => {
+        this.isSortingStarted = false;
+        this.isSortingDone = isCompleted;
+      });
     } else if (this.isQuickSortSelected) {
       console.log('start quick sorting');
     } else if (this.isHeapSortSelected) {
       console.log('start heap sorting');
     } else if (this.isBubbleSortSelected) {
-      this.isSortingStarted = true;
       this.arrService.startBubbleSort().then((isCompleted) => {
         this.isSortingStarted = false;
         this.isSortingDone = isCompleted;
