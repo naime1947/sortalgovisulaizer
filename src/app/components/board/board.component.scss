@@ -1,5 +1,6 @@
-.container {
+.wrapper {
   width: 100%;
+  padding: 0 40rem;
   display: flex;
   justify-content: center;
 
@@ -9,9 +10,8 @@
     justify-content: center;
   }
 }
-
 .each-item {
-  margin: 0 1px;
+  margin-left: 1px;
   background-color: dodgerblue;
   flex: 1;
   text-align: center;
@@ -19,5 +19,17 @@
   color: white;
   &.sorted {
     background-color: hotpink;
+  }
+  &.selected {
+    background-color: lawngreen;
+  }
+  &.done {
+    background-color: darkcyan;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .wrapper {
+    padding: 0 1rem;
   }
 }
