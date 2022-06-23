@@ -17,7 +17,7 @@ export class ArraySortService {
   }
 
   setSpeed(value: number) {
-    const lowestSpeed = 200;
+    const lowestSpeed = 100;
     this.speed = lowestSpeed - value;
   }
 
@@ -37,42 +37,46 @@ export class ArraySortService {
   }
 
   async startBubbleSort(): Promise<boolean> {
+    const isSortingAlreadyDoneOnce = this.arrStore.find((x) => x.isDone);
+    if (isSortingAlreadyDoneOnce) {
+      this.arrStore.forEach((x) => (x.isDone = false));
+      this.arrSub.next(this.arrStore);
+    }
     var n = this.arrStore.length;
     for (let i = 0; i < n - 1; i++) {
       for (let j = 0; j < n - i - 1; j++) {
-        await wait(this.speed);
         this.arrStore[j].isSelected = true;
         this.arrStore[j + 1].isSelected = true;
+
+        await wait(this.speed);
         this.arrSub.next(this.arrStore);
 
         if (this.arrStore[j].value > this.arrStore[j + 1].value) {
-          await wait(this.speed);
-
           var temp = this.arrStore[j].value;
           this.arrStore[j].value = this.arrStore[j + 1].value;
           this.arrStore[j + 1].value = temp;
 
           this.arrStore[j].isSelected = false;
           this.arrStore[j + 1].isSelected = false;
+          this.arrSub.next(this.arrStore);
         } else {
-          await wait(this.speed);
           this.arrStore[j].isSelected = false;
           this.arrStore[j + 1].isSelected = false;
           this.arrSub.next(this.arrStore);
         }
       }
-      await wait(this.speed);
       this.arrStore[n - (i + 1)].isSelected = false;
       this.arrStore[n - (i + 1)].isSorted = true;
       this.arrSub.next(this.arrStore);
     }
 
-    await wait(1000);
     this.arrStore.forEach(async (x) => {
       x.isSelected = false;
       x.isSorted = false;
       x.isDone = true;
     });
+
+    await wait(this.speed * 2);
     this.arrSub.next(this.arrStore);
 
     return Promise.resolve(true);
